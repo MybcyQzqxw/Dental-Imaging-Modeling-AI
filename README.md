@@ -98,8 +98,6 @@ Data/
 
 ### 3. 模型训练
 
-#### 🔸 口腔病变分类
-
 ```bash
 # 基础训练
 python train/main_train.py lesions --data_path ./Data
