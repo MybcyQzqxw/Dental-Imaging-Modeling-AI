@@ -85,8 +85,7 @@ def main():
     
     if args.model_type == 'classification':
         class_names = [
-            'Gingivits', 'Cold_Sores', 'Canker_Sores', 'Periodontitis',
-            'Receding_Gum', 'abfraction', 'Thrush', 'Gingival_Cyst'
+            'Cold_Sores', 'Canker_Sores', 'abfraction', 'Thrush', 'Gingival_Cyst'
         ]
         evaluate_classification_model(
             args.model_path, args.test_data_path, class_names
