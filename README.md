@@ -59,10 +59,9 @@
 git clone https://github.com/MybcyQzqxw/Dental-Imaging-Modeling-AI.git
 cd Dental-Imaging-Modeling-AI
 
-# 创建虚拟环境
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# 或 venv\Scripts\activate  # Windows
+# 创建conda环境
+conda create -n dental_imaging python=3.8 -y
+conda activate dental_imaging
 
 # 安装依赖
 pip install -r requirements.txt
