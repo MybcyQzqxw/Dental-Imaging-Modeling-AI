@@ -311,3 +311,51 @@ def prepare_training_data(images, labels, test_size=0.2, random_state=42):
     print(f"图像形状: {x_train.shape[1:]}")
     
     return x_train, x_test, y_train, y_test
+
+
+def apply_data_augmentation(images, labels, augmentation_factor=2):
+    """
+    应用数据增强.
+    
+    Args:
+        images: 原始图像数组
+        labels: 原始标签数组
+        augmentation_factor: 增强倍数
+    
+    Returns:
+        增强后的图像和标签
+    """
+    from tensorflow.keras.preprocessing.image import ImageDataGenerator
+    
+    # 创建数据增强生成器
+    datagen = ImageDataGenerator(
+        rotation_range=20,
+        width_shift_range=0.1,
+        height_shift_range=0.1,
+        horizontal_flip=True,
+        zoom_range=0.1,
+        brightness_range=[0.8, 1.2],
+        fill_mode='nearest'
+    )
+    
+    augmented_images = []
+    augmented_labels = []
+    
+    # 为每个图像生成增强版本
+    for i in range(len(images)):
+        # 原始图像
+        img = images[i]
+        label = labels[i]
+        
+        # 扩展维度以符合generator要求
+        img_expanded = np.expand_dims(img, axis=0)
+        
+        # 生成增强图像
+        aug_iter = datagen.flow(img_expanded, batch_size=1)
+        
+        for _ in range(augmentation_factor):
+            aug_img = next(aug_iter)[0]
+            augmented_images.append(aug_img)
+            augmented_labels.append(label)
+    
+    return np.array(augmented_images), np.array(augmented_labels)
