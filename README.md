@@ -119,7 +119,7 @@ python train/train_oral_lesions.py \
 
 ```bash
 python train/evaluate_model.py \
-    --model_path my_lesions_model.h5 \
+    --model_path oral_lesions_best.h5 \
     --test_data_path ./Data/oral_lesions_raw \
     --model_type classification
 ```
