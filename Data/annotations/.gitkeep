@@ -1,0 +1,25 @@
+# 标注文件目录
+
+此目录存放目标检测的标注文件，支持以下格式：
+
+## XML格式 (PASCAL VOC)
+```xml
+<annotation>
+    <object>
+        <name>plaque</name>
+        <bndbox>
+            <xmin>100</xmin>
+            <ymin>100</ymin>
+            <xmax>200</xmax>
+            <ymax>200</ymax>
+        </bndbox>
+    </object>
+</annotation>
+```
+
+## YOLO格式 (.txt)
+```
+class_id x_center y_center width height
+```
+
+注意：实际的标注文件会被.gitignore忽略，只有这个说明文件会被跟踪。
