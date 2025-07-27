@@ -115,29 +115,6 @@ python train/train_oral_lesions.py \
     --visualize
 ```
 
-#### 🔸 口腔疾病检测
-
-```bash
-# 基础训练
-python train/main_train.py conditions --data_path ./Data
-
-# 详细参数训练
-python train/train_oral_conditions.py \
-    --images_path "./Data/teeth_raw/*.JPG" \
-    --annotations_path "./Data/annotations/" \
-    --epochs 100 \
-    --batch_size 3 \
-    --learning_rate 0.0001 \
-    --image_size 480 \
-    --save_model my_detector_model.h5
-```
-
-#### 🔸 同时训练两个模型
-
-```bash
-python train/main_train.py both --data_path ./Data
-```
-
 ### 4. 模型评估
 
 ```bash
